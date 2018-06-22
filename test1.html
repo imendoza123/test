@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS for p -whitout framework -->
+  <style>
+  h1 {
+
+    text-align: center;
+    color: blue;
+  }
+
+  p {
+    text-align: center;
+    font-size: 60px;
+    margin-top:0px;
+    color : blue;
+    background-color : yellow;
+  }
+  </style>
+
+  </head>
+
+  <body>
+
+  <h1>Countdown Timer</h1>
+  <p id="countDownShow"></p>
+
+    <script>
+        // Set end Date
+        var endDate = new Date("June 24, 2018 24:00:00").getTime();
+        
+        setInterval(function() 
+        {
+          // Get starting date for countdown
+          var startDate = new Date().getTime();
+
+          //Distance between start and end date 
+          var distance = endDate-startDate;
+
+          //Calculate seconds, minutes,hours, days
+          var seconds = 1000*60;
+          var minutes = seconds * 60; // 1000 * 60 * 60
+          var hours = minutes * 60;   // 1000 * 60 * 60 * 60
+          var days = minutes * 24;
+
+          //Calculate distance Days, Hours, minutes, seconds
+          var dDays = Math.floor(distance / days);
+          var dHours = Math.floor ((distance % days) / minutes);
+          var dMinutes = Math.floor ((distance % minutes) / seconds);
+          var dSeconds = Math.floor((distance % seconds) / 1000);         
+
+          // Output result in an element with id="countDownShow"
+            document.getElementById("countDownShow").innerHTML = dDays + "d " + dHours + "h "
+            + dMinutes + "m " + dSeconds + "s ";                    
+        }, 1000);
+    </script>
+  </body>
+</html>
